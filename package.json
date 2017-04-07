@@ -1,0 +1,23 @@
+{
+  "name": "rre_p",
+  "version": "1.0.0",
+  "description": "React.js test_from ws",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3ddesign/rre_p.git"
+  },
+  "keywords": [
+    "redux",
+    "react"
+  ],
+  "author": "Dmitry Scherbakov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/3ddesign/rre_p/issues"
+  },
+  "homepage": "https://github.com/3ddesign/rre_p#readme"
+}

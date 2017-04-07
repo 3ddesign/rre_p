@@ -1,6 +1,8 @@
-//number string boolean object  null undefined
-//bind, call, apply
-//
+
+
+
+
+
 
 // Examples:
 
@@ -14,26 +16,26 @@
 //     setTimeout(printConsole(i), 2000);
 // }
 //
-
-var apiCall = new Promise(function(resolve, reject) {
-    $.ajax({
-        url: 'http://ip.jsontest.com/',
-        type: 'GET',
-        crossDomain: true,
-        success: function(data) {
-            resolve(data.ip);
-        },
-        error: function() {
-            reject();
-        }
-    });
-});
-
-
-apiCall
-    .then(function(ip) {
-        console.log(`IP: ${ip}`);
-    })
-    .catch(function() {
-        console.warn('Api call failed!');
-    });
+//
+// var apiCall = new Promise(function(resolve, reject) {
+//     $.ajax({
+//         url: 'http://ip.jsontest.com/',
+//         type: 'GET',
+//         crossDomain: true,
+//         success: function(data) {
+//             resolve(data.ip);
+//         },
+//         error: function() {
+//             reject();
+//         }
+//     });
+// });
+//
+//
+// apiCall
+//     .then(function(ip) {
+//         console.log(`IP: ${ip}`);
+//     })
+//     .catch(function() {
+//         console.warn('Api call failed!');
+//     });
