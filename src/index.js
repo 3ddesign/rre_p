@@ -1,36 +1,43 @@
-import React, { PropTypes, Component } from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import NewComponent from './new';
 
 class App extends Component {
 
-    static propTypes = {
-        btnText: PropTypes.string.isRequired,
-        h1text: PropTypes.string.isRequired,
-        newArray: PropTypes.array.isRequired
-    };
-
-    static defaultProps = {
-        btnText: 'default props text'
-    };
-
-    btnClick() {
-        console.log('Hi!');
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            array: [ 
+                {
+                    id:1,
+                    text:'item 1'
+                },
+                {
+                    id:2,
+                    text:'item 2'
+                },
+                {
+                    id:3,
+                    text:'item 3'
+                }
+                
+            ]
+        }
     }
 
     render() {
-        console.log(this.props.newArray);
         return (
-            <div className="test">
-                <h1> {this.props.h1text }</h1>
-                <h3>It`s really working!!!</h3> 
-                <button onClick={this.btnClick}>{ this.props.btnText }</button>
+            <div>
+                <h1>Add component!</h1>
+                <NewComponent array={this.state.array}/> 
             </div>
         );
     }
 }
 
 ReactDOM.render(
-    <App h1text="This is H1 text" newArray={[1,2,3]}/>,
+    <App />,
     document.getElementById('app')
 );
 
