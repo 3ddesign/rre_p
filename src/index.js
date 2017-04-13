@@ -1,44 +1,19 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import NewComponent from './new';
+import { Router, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
+import { syncHistoryWithStore } from 'react-router-redux';
+import configureStore from './store';
+import routes from './routes';
 
-class App extends Component {
+const store = configureStore();
+const history = syncHistoryWithStore(browserHistory, store);
 
-    constructor(props) {
-        super(props);
-        
-        this.state = {
-            array: [ 
-                {
-                    id:1,
-                    text:'item 1'
-                },
-                {
-                    id:2,
-                    text:'item 2'
-                },
-                {
-                    id:3,
-                    text:'item 3'
-                }
-                
-            ]
-        }
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>Add component!</h1>
-                <NewComponent array={this.state.array}/> 
-            </div>
-        );
-    }
-}
-
-ReactDOM.render(
-    <App />,
-    document.getElementById('app')
-);
-
-
+ReactDOM.render((
+    <Provider store={ store }>
+        <Router history={ history }>
+            { routes }
+        </Router>
+    </Provider>
+),
+document.querySelector('#app'));
