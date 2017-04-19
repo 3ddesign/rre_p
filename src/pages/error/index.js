@@ -6,7 +6,7 @@ export default class ErrorPage extends React.Component {
     render() {
         return (
             <div className='alert alert-danger'>
-               <h3>Стараница не найдена</h3>
+               <h3>404! Стараница не найдена</h3>
                 <p>Перейти на <Link to='/'>главную</Link></p>
             </div>
         );
