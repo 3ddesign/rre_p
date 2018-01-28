@@ -3,12 +3,8 @@
 //
 // const server = http.createServer(app);
 
-const express = require('express');
-const app = express();
+const app = require('./app');
 
-app.get('/', (req, res) => {
-    res.send({ hi: 'test' });
-});
 
 const PORT = process.env.PORT || 5000;
 // server.listen(PORT);
