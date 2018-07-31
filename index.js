@@ -1,15 +1,4 @@
-const http = require('http');
-// http.createServer(function(req, res) {
-//
-//     res.writeHead(200, {'Content-Type': 'text/plain'});
-//     res.end('test\n');
-// }).listen(50, '127.0.0.1');
-
-
-// const app = require('./app');
-//
-
-
+// const http = require('http');
 const express = require('express');
 const app = express();
 
