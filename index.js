@@ -1,11 +1,23 @@
-// const http = require('http');
-const express = require('express');
-const app = express();
+var http = require('http');
+var fs = require('fs');
 
-app.get('/', (req, res) => {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('test\n');
-});
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT);
+http.createServer(function(req, res) {
+    
+    if (req.url === '/') {
+        fs.createReadStream(__dirname + '/index.html').pipe(res);
+    }
+    
+    else if (req.url === '/api') {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        var obj = {
+            firstname: 'John',
+            lastname: 'Doe'
+        };
+        res.end(JSON.stringify(obj));
+    }
+    else {
+        res.writeHead(404);
+        res.end();
+    }
+    
+}).listen(5000, 'localhost');
