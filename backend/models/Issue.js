@@ -7,7 +7,7 @@ let Issue = new Schema({
         type: String
     },
     responsible: {
-        type: String 
+        type: String
     },
     description: {
         type: String
@@ -20,3 +20,5 @@ let Issue = new Schema({
         default: 'Open'
     }
 });
+
+export default mongoose.model('Issue', Issue);

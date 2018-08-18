@@ -2,7 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-import Issue from 'models/Issue';
+
+import Issue from './models/Issue';
 
 const app = express();
 const router = express.Router();
@@ -11,7 +12,7 @@ const router = express.Router();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('');
+mongoose.connect('mongodb://root:123qweasd@ds125362.mlab.com:25362/issues-app');
 
 const connection = mongoose.connection;
 
@@ -21,12 +22,11 @@ connection.once('open', () => {
 
 router.route('/issues').get((req, res) => {
     Issue.find((err, issues) => {
-        if (err) {
-            console.log(err)
-        } else {
+        if (err)
+            console.log(err);
+        else
             res.json(issues);
-        }
-    })
+    });
 });
 
 router.route('/issues/:id').get((req, res) => {
@@ -42,7 +42,7 @@ router.route('/issues/add').post((req, res) => {
     let issue = new Issue(req.body);
     issue.save()
         .then(issue => {
-            res.status(200).json({'issue': 'Added successfully'});
+            res.status(200).json({ 'issue': 'Added successfully' });
         })
         .catch(err => {
             res.status(400).send('Failed to create new record');
@@ -65,6 +65,15 @@ router.route('/issues/update/:id').post((req, res) => {
                 res.status(400).send('Update failed');
             });
         }
+    });
+});
+
+router.route('/issues/delete/:id').get((req, res) => {
+    Issue.findByIdAndRemove({_id: req.params.id}, (err, issue) => {
+        if (err)
+            res.json(err);
+        else
+            res.json('Removed successfully');
     });
 });
 
