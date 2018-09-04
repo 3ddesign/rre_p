@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 import { Router } from '@angular/router'; 
-import { Issue } from '../../models/issue.model';
 import { IssueService } from '../../issue.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { IssueService } from '../../issue.service';
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css']
 })
-export class CreateComponent implements OnInit {
+export class CreateComponent {
 
   createForm: FormGroup;
 
@@ -27,8 +27,4 @@ export class CreateComponent implements OnInit {
       this.router.navigate(['/list']);
     });
   }
-
-  ngOnInit() {
-  }
-
 }

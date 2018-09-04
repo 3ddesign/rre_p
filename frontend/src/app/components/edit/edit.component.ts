@@ -4,7 +4,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { MatSnackBar } from '@angular/material';
 
-import { Issue } from '../../models/issue.model';
 import { IssueService } from '../../issue.service';
 
 @Component({
@@ -18,7 +17,6 @@ export class EditComponent implements OnInit {
   issue: any = {};
   updateForm: FormGroup;
 
-  // tslint:disable-next-line:max-line-length
   constructor(private issueService: IssueService, private router: Router, private route: ActivatedRoute, private snackBar: MatSnackBar, private fb: FormBuilder) {
     this.createForm();
   }
@@ -54,5 +52,4 @@ export class EditComponent implements OnInit {
       });
     });
   }
-
 }

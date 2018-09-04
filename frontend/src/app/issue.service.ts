@@ -29,6 +29,7 @@ export class IssueService {
     const issue = {
       title, responsible, description, severity, status
     }
+    console.log(id)
     return this.http.post(`${this.baseUri}/issues/update/${id}`, issue);
   }
 

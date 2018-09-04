@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatTableDataSource } from '@angular/material';
 
 import { Issue } from '../../models/issue.model';
+
 import { IssueService } from '../../issue.service';
 
 @Component({
@@ -26,8 +26,6 @@ export class ListComponent implements OnInit {
       .getIssues()
       .subscribe((data: Issue[]) => {
         this.issues = data;
-        console.log('Data requested ...');
-        console.log(this.issues);
       });
   }
 
@@ -40,5 +38,4 @@ export class ListComponent implements OnInit {
       this.fetchIssues();
     });
   }
-
 }
